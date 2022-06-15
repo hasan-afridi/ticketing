@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user";
 import { RequestValidationError } from "../errors/request-validation-error";
 import { BadRequestError } from "../errors/bad-request-error";
-import { ResultWithContext } from "express-validator/src/chain";
 
 const router = express.Router();
 
@@ -41,7 +40,7 @@ router.post(
         id: user.id,
         email: user.email,
       },
-      "asdf"
+      process.env.JWT_KEY!
     );
 
     // store it on the session object
